@@ -3,19 +3,19 @@ services:
   - docker
 
 before_install:
-   - docker build -t pavanakartik/react-test -f ./client/Dockerfile.dev ./client
+   - docker build -t pavanakartikvelagaleti/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run -e CI=true pavanakartik/react-test npm test
+  - docker run -e CI=true pavanakartikvelagaleti/react-test npm test
 after_success:
-  - docker build -t pavanakartik/multi-client ./client
-  - docker build -t pavanakartik/multi-nginx ./nginx
-  - docker build -t pavanakartik/multi-server ./server
-  - docker build -t pavanakartik/multi-worker ./worker
-  
+  - docker build -t pavanakartikvelagaleti/multi-client ./client
+  - docker build -t pavanakartikvelagaleti/multi-nginx ./nginx
+  - docker build -t pavanakartikvelagaleti/multi-server ./server
+  - docker build -t pavanakartikvelagaleti/multi-worker ./worker
+
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  - docker push pavanakartik/multi-client
-  - docker push pavanakartik/multi-nginx
-  - docker push pavanakartik/multi-server
-  - docker push pavanakartik/multi-worker
+  - docker push pavanakartikvelagaleti/multi-client
+  - docker push pavanakartikvelagaleti/multi-nginx
+  - docker push pavanakartikvelagaleti/multi-server
+  - docker push pavanakartikvelagaleti/multi-worker
