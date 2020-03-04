@@ -19,3 +19,19 @@ after_success:
   - docker push pavanakartikvelagaleti/multi-nginx
   - docker push pavanakartikvelagaleti/multi-server
   - docker push pavanakartikvelagaleti/multi-worker
+
+
+deploy:
+  provider: elasticbeanstalk
+  region: us-east-2
+  app: multi-docker
+  env: MultiDocker-env
+  bucker_name: elasticbeanstalk-us-east-2-685819197856
+  bucket_path: docker-multi
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: $AWS_SECRET_KEY
+
+
