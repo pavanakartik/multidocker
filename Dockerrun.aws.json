@@ -1,7 +1,6 @@
 {
-    "AWSEBDockerrunVersion":2,
-    "ContainerDefinitions":[
-
+    "AWSEBDockerrunVersion": 2,
+    "containerDefinitions":[
         {
             "name":"client",
             "image": "pavanakartikvelagaleti/multi-client",
