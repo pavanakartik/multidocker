@@ -1,7 +1,7 @@
 version: '3'
 services:
   postgres:
-    image: 'postgres:9.5.18'
+    image: 'postgres:latest'
   redis:
     image: 'redis:latest'
   nginx:
@@ -22,7 +22,7 @@ services:
       context: ./server
     volumes:
       - /app/node_modules
-      - ./server:/app
+      - ./server:/apppostgres:9.5.18
     environment:
       - REDIS_HOST=redis
       - REDIS_PORT=6379
